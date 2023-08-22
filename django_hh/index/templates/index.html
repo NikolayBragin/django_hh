@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+    <h1>Главная</h1>
+    <hr>
+    <p>Этот сайт является порталом по поиску и найму персонала и служит ярким доказательством, что Николай Брагин успешно постигает back-end с легкими вкраплениями Front-end'а</p>
+    <p>В данном проекте реализованы:
+        <li>+++База данных (Postgres)+++</li>
+        <li>+++Минимальный фронтэнд(Bootstrap)+++</li>
+        <li>+++Система авторизации+++</li>
+        <li>+++Формы (forms.py, front)+++</li>
+        <li>Git/Сервер</li>
+        <li>Использовать API (взависимости от проекта)</li>
+        <li>Оплата (в зависимости отпроекта)</li>
+    </p>
+{% endblock %}
+
+{% block tools %}
+    <hr>
+    Профессии:
+    {% for category in categories %}
+        <a href="category/{{ category.id }}">{{ category.category_name }}</a>
+    {% endfor %}
+    <hr>
+    Работники:
+    {% for product in products %}
+        <a href="product/{{ product.id }}">{{ product.product_name }}</a>
+    {% endfor %}{% endblock %}
+
+{% block search %}
+        <hr>
+        <h5>Ввести имя работника</h5>
+        <form action="search" method="POST">
+            {% csrf_token %}
+            <input class="find" type="text" name="search_product"><br>
+            <br>
+            <button class="search">Поиск</button>
+        </form>
+        <hr>
+{% endblock %}
+
+
+
+
+
+
+

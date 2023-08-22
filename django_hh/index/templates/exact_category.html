@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+
+{% block title %}Все работники по выбранной профессии{% endblock %}
+
+{% block content %}
+    <h1>Все работники по выбранной профессии</h1>
+    <hr>
+    {% for i in products %}
+        <a href="/product/{{ i.id }}">{{ i.product_name }}</a><br>
+    {% endfor %}
+{% endblock %}
+{% block tools %}{% endblock %}
+{% block search %}{% endblock %}

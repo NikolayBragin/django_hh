@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+
+{% block title %}Обо мне{% endblock %}
+
+{% block content %}
+    <h1>Обо мне</h1>
+    <hr>
+    <p>Я, Брагин Николай, начинающий, но крайне одаренный back-end разработчик.</p>
+    <p>С удовольствием устроюсь стажером в любую IT компанию (предпочтительно IT-park, Ташкент) для закрепления скилов и наработки бесценного опыта.</p>
+    <p>Так же готов преподавать в учебных заведениях или ВУЗах (опыт преподавательской деятельности 7 лет)/</p>
+{% endblock %}
+
+{% block search %}
+        <hr>
+        <h5>Ввести имя работника</h5>
+        <form action="search" method="POST">
+            {% csrf_token %}
+            <input class="find" type="text" name="search_product"><br>
+            <br>
+            <button class="search">Поиск</button>
+        </form>
+        <hr>
+{% endblock %}
+
+
+
+
+

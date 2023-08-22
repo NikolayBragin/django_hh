@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block title %}Вход{% endblock %}
+
+{% block content %}
+    <h1>Вход</h1>
+    <hr>
+    <form method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button>Войти</button>
+    </form>
+{% endblock %}
+{% block tools %}{% endblock %}
+{% block search %}{% endblock %}
+
