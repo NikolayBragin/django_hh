@@ -10,7 +10,6 @@
     <h4>Город: {{ product.product_city }}</h4><br>
     <h4>Резюме: {{ product.product_des }}</h4><br>
     <h4>Начальная зарплата: {{ product.product_price }} сум</h4>
-    <hr>
     {% if user.is_authenticated %}
         <form action="/add-to-cart/{{ product.id }}" method="POST">
             {% csrf_token %}
@@ -24,6 +23,14 @@
 
 
 {% endblock %}
-{% block tools %}{% endblock %}
+{% block tools %}
+    <h1>Внезапный прогноз погоды</h1>
+    <hr>
+    <h4>
+        Сегодня в городе {{ Температура.0 }} {{ Температура.1 }}. Температура: {{ Температура.2 }} градусов Цельсия. Атмосферное давление: {{ Температура.3 }}мм. рт. ст.
+        <br>
+        Влажность: {{ Температура.4 }} %. Скорость ветра: {{ Температура.5 }} м/сек
+    </h4>
+{% endblock %}
 {% block search %}{% endblock %}
 

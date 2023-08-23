@@ -6,10 +6,9 @@
     <h1>Кандидаты на собеседование</h1>
     <hr>
     {% for i in cart %}
-    <h5>/ Имя кандидата: {{ i.user_product }} / <i class="fa-solid fa-trash"></i> Удалить</a></h5>
+    <h5>/ Имя кандидата: {{ i.user_product }} / <a href="/del-item/{{ i.user_product.id }}"><i class="fa-solid fa-trash"></i> Удалить</a></h5>
     <hr>
     {% endfor %}
-    <hr>
     <form method="POST">
         {% csrf_token %}
         <button class="search"><i class="fa-brands fa-telegram"></i> Пригласить на собеседование</button>

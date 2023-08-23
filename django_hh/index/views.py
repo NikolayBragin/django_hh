@@ -34,7 +34,17 @@ def get_exact_category(request, pk):
 
 def get_exact_product(request, pk):
     product = models.Product.objects.get(id=pk)
-    context = {'product': product}
+    city = product.product_city
+    API_TOKEN = '7d58c54b3c0c66b13dcff13b9c5134e7'
+    params = {'q': city, 'appid': API_TOKEN, 'units': 'metric'}
+    response = requests.get('https://api.openweathermap.org/data/2.5/weather', params=params)
+    x = response.json()
+    if x['weather'][0]['main'] == 'Clear':
+        p ='ясно'
+    else:
+        p ='облачно'
+    y = [city, p, x['main']['temp'], x['main']['pressure'], x['main']['humidity'], x['wind']['speed']]
+    context = {'product': product, 'Температура': y}
     return render(request, 'exact_product.html', context)
 
 def search_product(request):
@@ -82,18 +92,4 @@ def register(request):
     context = {'form': form}
     return render(request, 'registration/register.html', context)
 
-def get_weather(city):
-    API_TOKEN = '7d58c54b3c0c66b13dcff13b9c5134e7'
-    params = {'q': city, 'appid': API_TOKEN, 'units': 'metric'}
-    response = requests.get('https://api.openweathermap.org/data/2.5/weather', params=params)
-    x = response.json()
-    if x['weather'][0]['main'] == 'Clear':
-        p='ясно'
-    else:
-        p='облачно'
-    print(f'Сегодня в городе {city} {p}')
-    print('Температура:', x['main']['temp'], 'Градусов Цельсия')
-    print('Атмосферное давление:', x['main']['pressure'], 'мм. рт. ст.')
-    print('Влажность:', x['main']['humidity'], '%')
-    print('Скорость ветра:', x['wind']['speed'], 'м/сек')
 
