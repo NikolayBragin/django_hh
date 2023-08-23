@@ -5,29 +5,40 @@
 {% block content %}
     <h1>Главная</h1>
     <hr>
-    <p>Этот сайт является порталом по поиску и найму персонала и служит ярким доказательством, что Николай Брагин успешно постигает back-end с легкими вкраплениями Front-end'а</p>
-    <p>В данном проекте реализованы:
-        <li>+++База данных (Postgres)+++</li>
-        <li>+++Минимальный фронтэнд(Bootstrap)+++</li>
-        <li>+++Система авторизации+++</li>
-        <li>+++Формы (forms.py, front)+++</li>
-        <li>Git/Сервер</li>
-        <li>Использовать API (взависимости от проекта)</li>
-        <li>Оплата (в зависимости отпроекта)</li>
-    </p>
+
+    <h5><p>Этот сайт является порталом по поиску и найму персонала и служит ярким доказательством, что Николай Брагин успешно постигает back-end с легкими вкраплениями Front-end'а</p></h5>
+    <h5><p>В данном проекте реализованы:</p></h5>
+    <h5><li>Отслеживание ссылок(главная страница, инфо, просмотр резюме и т.д.)</li><br>
+        <li>Работа с базой данных SQlite3</li><br>
+        <li>Минимальный фронтэнд(Разметка страниц, Bootstrap, Font-awesome)</li><br>
+        <li>Добавлена возможность регистрации пользователей</li><br>
+        <li>Сделана модель поиска статей по имени и по профессии (категории)</li><br>
+        <li>Добавлена возможность загрузки и отображения изображений к резюме</li><br>
+        <li>Подключен модуль telebot: на телефон приходит сообщение, о приглашении на собеседование</li><br>
+        <li>Проект загружен на GitHub по ссылке:  https://github.com/NikolayBragin/django_hh</li><br>
+        <li>---Проект запущен на Pythonanywhere и доступен 24/7 по ссылке: </li><br>
+        <li>---Использовать API (взависимости от проекта)</li><br>
+        <li>---Оплата (в зависимости отпроекта)</li><br></h5>
+
+
 {% endblock %}
 
 {% block tools %}
     <hr>
-    Профессии:
-    {% for category in categories %}
-        <a href="category/{{ category.id }}">{{ category.category_name }}</a>
-    {% endfor %}
-    <hr>
-    Работники:
-    {% for product in products %}
-        <a href="product/{{ product.id }}">{{ product.product_name }}</a>
-    {% endfor %}{% endblock %}
+    <aside class="tools_text">
+        <ul>
+            Профессии:
+            {% for category in categories %}
+                <a href="category/{{ category.id }}">{{ category.category_name }}</a>
+            {% endfor %}
+            <hr>
+            Работники:
+            {% for product in products %}
+                <a href="product/{{ product.id }}">{{ product.product_name }}</a>
+            {% endfor %}
+        </ul>
+    </aside>
+{% endblock %}
 
 {% block search %}
         <hr>
@@ -36,7 +47,7 @@
             {% csrf_token %}
             <input class="find" type="text" name="search_product"><br>
             <br>
-            <button class="search">Поиск</button>
+            <button class="search"><i class="fa-solid fa-magnifying-glass"></i> Поиск</button>
         </form>
         <hr>
 {% endblock %}

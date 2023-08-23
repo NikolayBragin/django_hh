@@ -42,6 +42,10 @@ aside ul li{
     margin-left: 15px;
     transition: transform .6s ease;
 }
+.tools_text{
+    font-size: 28px;
+    color: #31495e;
+}
 aside ul a{font-size: 28px;}
 aside ul li:hover, aside ul a:hover{
         color: #fff;

@@ -5,8 +5,9 @@
 {% block content %}
     <h1>Контакты</h1>
     <hr>
+<h5>
     <p>Ташкент, Мирзо-Улугбекский район, улица Сайрам, дом 2, квартира 84</p>
-    <p>тел: +998-90-038-39-11, эл.адрес: anhksnick@gmail.com </p>
+    <p>тел: +998-90-038-39-11, эл.адрес: anhksnick@gmail.com </p></h5>
 {% endblock %}
 
 {% block search %}
@@ -16,7 +17,7 @@
             {% csrf_token %}
             <input class="find" type="text" name="search_product"><br>
             <br>
-            <button class="search">Поиск</button>
+            <button class="search"><i class="fa-solid fa-magnifying-glass"></i> Поиск</button>
         </form>
         <hr>
 {% endblock %}

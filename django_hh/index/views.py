@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from . import forms, models
-from . models import Product
 import requests
+from .handlers import bot
 
 from django.views.generic import DetailView, UpdateView, DeleteView
 
@@ -49,14 +49,19 @@ def search_product(request):
 def add_to_cart(request, pk):
     if request.method == 'POST':
         checker = models.Product.objects.get(id=pk)
-        if checker.product_amount >= int(request.POST.get('product_amount')):
-            models.Cart.objects.create(user_id=request.user.id, user_product=checker, user_product_count=int(request.POST.get('product_amount'))).save()
-            return redirect('/')
-        else:
-            return redirect('/')
+        product_amount_one = 1
+        models.Cart.objects.create(user_id=request.user.id, user_product=checker, user_product_count=product_amount_one).save()
+        return redirect('/')
 
 def user_cart(request):
     cart = models.Cart.objects.filter(user_id=request.user.id)
+    if request.method == 'POST':
+        main_text = 'Вашими резюме заинтересовались!\n\n'
+        for i in cart:
+            main_text += f'Соискателя: / {i.user_product} / хотят пригласить на собеседование\n'
+        bot.send_message(352722879, main_text)
+        cart.delete()
+        return redirect('/')
     context = {'cart': cart}
     return render(request, 'user_cart.html', context)
 

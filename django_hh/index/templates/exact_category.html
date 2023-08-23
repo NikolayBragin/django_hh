@@ -5,9 +5,10 @@
 {% block content %}
     <h1>Все работники по выбранной профессии</h1>
     <hr>
+    <h5>
     {% for i in products %}
-        <a href="/product/{{ i.id }}">{{ i.product_name }}</a><br>
-    {% endfor %}
+        <a href="/product/{{ i.id }}">{{ i.product_name }}</a><br><br>
+    {% endfor %}</h5>
 {% endblock %}
 {% block tools %}{% endblock %}
 {% block search %}{% endblock %}

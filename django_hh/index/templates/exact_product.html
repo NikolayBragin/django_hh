@@ -9,8 +9,18 @@
     <h4>Профессия: {{ product.product_category }}</h4><br>
     <h4>Город: {{ product.product_city }}</h4><br>
     <h4>Резюме: {{ product.product_des }}</h4><br>
-    <h4>Начальная зарплата: {{ product.product_price }} сум</h4><br>
-    <h4>{{ context }}</h4><br>
+    <h4>Начальная зарплата: {{ product.product_price }} сум</h4>
+    <hr>
+    {% if user.is_authenticated %}
+        <form action="/add-to-cart/{{ product.id }}" method="POST">
+            {% csrf_token %}
+            <button class="search"><i class="fa-solid fa-circle-plus"></i> Добавить</button>
+
+        </form>
+    {% else %}
+        <h5>*Войдите в свой аккаунт, если хотите добавить данное резюме</h5>
+
+    {% endif %}
 
 
 {% endblock %}

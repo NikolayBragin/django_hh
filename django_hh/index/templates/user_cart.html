@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block title %}Кандидаты на собеседование{% endblock %}
+
+{% block content %}
+    <h1>Кандидаты на собеседование</h1>
+    <hr>
+    {% for i in cart %}
+    <h5>/ Имя кандидата: {{ i.user_product }} / <i class="fa-solid fa-trash"></i> Удалить</a></h5>
+    <hr>
+    {% endfor %}
+    <hr>
+    <form method="POST">
+        {% csrf_token %}
+        <button class="search"><i class="fa-brands fa-telegram"></i> Пригласить на собеседование</button>
+    </form>
+
+
+{% endblock %}
+{% block tools %}{% endblock %}
+{% block search %}{% endblock %}
+
