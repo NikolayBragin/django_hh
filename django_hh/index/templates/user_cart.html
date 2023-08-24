@@ -3,19 +3,35 @@
 {% block title %}Кандидаты на собеседование{% endblock %}
 
 {% block content %}
-    <h1>Кандидаты на собеседование</h1>
-    <hr>
-    {% for i in cart %}
-    <h5>/ Имя кандидата: {{ i.user_product }} / <a href="/del-item/{{ i.user_product.id }}"><i class="fa-solid fa-trash"></i> Удалить</a></h5>
-    <hr>
-    {% endfor %}
-    <form method="POST">
-        {% csrf_token %}
-        <button class="search"><i class="fa-brands fa-telegram"></i> Пригласить на собеседование</button>
-    </form>
-
-
+    <aside class="title_text">
+        <h1>КАНДИДАТЫ НА СОБЕСЕДОВАНИЕ</h1>
+    </aside>
+    <aside class="main_text_ex">
+        {% for i in cart %}
+        <h5>/ Имя кандидата: {{ i.user_product }} {{ i.product_photo }} / <a href="/del-item/{{ i.user_product.id }}"><i class="fa-solid fa-trash"></i> Удалить</a></h5>
+        <hr>
+        {% endfor %}
+        <form method="POST">
+            {% csrf_token %}
+            <button class="search"><i class="fa-brands fa-telegram"></i> Пригласить на собеседование</button>
+        </form>
+    </aside>
 {% endblock %}
-{% block tools %}{% endblock %}
-{% block search %}{% endblock %}
+
+{% block tools %}
+<aside class="tools_ex">
+    <h5>
+        В данном разделе отображены все работники, которых вы отобрали для приема на работу.<br>
+        <br>
+        При нажатии на клавишу "Пригласить на собеседование" разработчику программы в Telegram придет сообщение со всеми выбранными кандидатами.
+    </h5>
+</aside>
+{% endblock %}
+
+{% block search %}
+    <form action="search" method="POST">
+        {% csrf_token %}
+        <input class="find" type="text" placeholder="Поиск по имени" name="search_product">
+    </form>
+{% endblock %}
 

@@ -3,52 +3,50 @@
 {% block title %}Главная{% endblock %}
 
 {% block content %}
-    <h1>Главная</h1>
-    <hr>
-
-    <h5><p>Этот сайт является порталом по поиску и найму персонала и служит ярким доказательством, что Николай Брагин успешно постигает back-end с легкими вкраплениями Front-end'а</p></h5>
-    <h5><p>В данном проекте реализованы:</p></h5>
-    <h5><li>Отслеживание ссылок(главная страница, инфо, просмотр резюме и т.д.)</li><br>
-        <li>Работа с базой данных SQlite3</li><br>
-        <li>Минимальный фронтэнд(Разметка страниц, Bootstrap, Font-awesome)</li><br>
-        <li>Добавлена возможность регистрации пользователей</li><br>
-        <li>Сделана обычная модель поиска, а так же модель поиска статей по имени и по профессии (категории)</li><br>
-        <li>Добавлена возможность загрузки и отображения изображений к резюме</li><br>
-        <li>Подключен модуль telebot: на телефон приходит сообщение, о приглашении на собеседование</li><br>
-        <li>Проект загружен на GitHub по ссылке:  https://github.com/NikolayBragin/django_hh</li><br>
-        <li>Проект запущен на Pythonanywhere и доступен 24/7 по ссылке: STRsNICK.pythonanywhere.com</li><br>
-        <li>Использование API: показываю погоду в городе, где родился соискатель (Беру с сайта api.openweathermap.org)</li><br></h5>
-
-{% endblock %}
-
-{% block tools %}
-    <hr>
-    <aside class="tools_text">
-        <ul>
-            Профессии:
-            {% for category in categories %}
-                <a href="category/{{ category.id }}">{{ category.category_name }}</a>
-            {% endfor %}
-            <hr>
-            Работники:
-            {% for product in products %}
-                <a href="product/{{ product.id }}">{{ product.product_name }}</a>
-            {% endfor %}
-        </ul>
+    <aside class="title_text">
+        <h1>ГЛАВНАЯ СТРАНИЦА</h1>
+    </aside>
+    <aside class="main_text">
+        <h5>Этот сайт является порталом по поиску и найму персонала и служит ярким доказательством, что Николай Андреевич Брагин успешно постигает Вack-end с легкими вкраплениями Front-end'а</h5>
+        <h5>В данном проекте реализованы:</h5>
+        <h5>
+            <li>Отслеживание ссылок(главная страница, инфо, просмотр резюме и т.д.)</li><br>
+            <li>Работа с базой данных SQlite3</li><br>
+            <li>Минимальный фронтэнд(Разметка страниц, Bootstrap, Font-awesome)</li><br>
+            <li>Добавлена возможность регистрации пользователей, только зарегестрированные пользователи могут нанимать работников</li><br>
+            <li>Сделана обычная модель поиска, а так же модель поиска резюме по имени и по профессии (категории)</li><br>
+            <li>Добавлена возможность загрузки и отображения изображений к резюме></li><br>
+            <li>Подключен модуль telebot: на телефон приходит сообщение, о приглашении на собеседование</li><br>
+            <li>Проект загружен на GitHub по ссылке:  https://github.com/NikolayBragin/django_hh</li><br>
+            <li>Проект запущен на Pythonanywhere и доступен 24/7 по ссылке: STRsNICK.pythonanywhere.com</li><br>
+            <li>Использование API: показываю погоду в городе, где родился соискатель (Беру с сайта api.openweathermap.org)</li><br>
+        </h5>
     </aside>
 {% endblock %}
 
 {% block search %}
-        <hr>
-        <h5>Ввести имя работника</h5>
-        <form action="search" method="POST">
-            {% csrf_token %}
-            <input class="find" type="text" name="search_product"><br>
-            <br>
-            <button class="search"><i class="fa-solid fa-magnifying-glass"></i> Поиск</button>
-        </form>
-        <hr>
+    <form action="search" method="POST">
+        {% csrf_token %}
+        <input class="find" type="text" placeholder="Поиск по имени" name="search_product">
+    </form>
 {% endblock %}
+
+{% block tools %}
+<aside class="tools">
+    <h5>
+        ПРОФЕССИИ:
+        {% for category in categories %}
+            <a href="category/{{ category.id }}">{{ category.category_name }}</a>
+        {% endfor %}<br>
+        <br>СОТРУДНИКИ:
+        {% for product in products %}
+            <a href="product/{{ product.id }}">{{ product.product_name }}</a>
+        {% endfor %}
+    </h5>
+</aside>
+{% endblock %}
+
+
 
 
 

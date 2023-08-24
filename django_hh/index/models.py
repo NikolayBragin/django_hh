@@ -30,3 +30,4 @@ class Cart(models.Model):
     user_id = models.IntegerField()
     user_product = models.ForeignKey(Product, on_delete=models.CASCADE)
     user_product_count = models.IntegerField()
+

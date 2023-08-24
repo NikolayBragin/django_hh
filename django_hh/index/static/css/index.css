@@ -1,68 +1,105 @@
-body {
-    background: #2d2d39;
-}
 .bar {
-    float: left;
-    background: #fd8469;
-    width: 20%;
-    padding: 2.5%;
-    height: 100vh;
-    color: #31495e;
-    border-right: 5px solid #31495e;
+background: #2d2d39;
+float: left;
+width: 100%;
+height: 10vh;
+color: #737373;
+}
+.bar a {
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  font-size: 25px;
 }
 
-.main {
+.bar1 {float: left; width: 19%; height: 10vh; padding: 1.3%; text-align: center; font-size: 25px}
+.bar2 {float: left; width: 5%; height: 10vh; padding: 1.3%; text-align: center;}
+.bar3 {float: left; width: 10%; height: 10vh; padding: 1.3%; text-align: center;}
+.bar4 {float: left; width: 11%; height: 10vh; padding: 1.3%; text-align: center;}
+.bar5 {float: left; width: 10%; height: 10vh; padding: 1.3%; text-align: center;}
+.bar6 {float: left; width: 10%; height: 10vh; padding: 1.3%; text-align: center;}
+.bar7 {float: left; width: 15%; height: 10vh; padding: 1.5%; text-align: center;}
+.bar8 {float: left; width: 12%; height: 10vh; padding: 1.3%; text-align: center;}
+.bar9 {float: left; width: 8%; height: 10vh; padding: 1.3%; text-align: center;}
+
+
+a:hover {text-decoration: none;}
+
+.title_text {
     float: left;
-    background: #fd8469;
-    width: 80%;
-    padding: 2.5%;
-    height: 75vh;
+    background: #ededfd;
+    width: 100%;
+    padding: 1%;
+    text-align: center;
+    height: 10vh;
     color: #31495e;
 }
-aside img {
-    width: 300px;
-    float: right;
+.main_text {
+    float: left;
+    background: #f8fafd;
+    width: 100%;
+    padding: 2%;
+    height: 62vh;
+    color: #31495e;
 }
+.main_img {
+    float: left;
+    background: #f8fafd;
+    width: 100%;
+    text-align: center;
+    padding: 1% 4%;
+    height: 62vh;
+    color: #31495e;
+}
+.main_img img {width: 170px;}
+
 .tools {
     float: left;
-    background: #fd8469;
-    width: 80%;
-    padding: 2.5%;
-    height: 25vh;
+    background: #2d2d39;
+    width: 100%;
+    padding: 1.2% 2%;
+    height: 13vh;
+    color: #737373;
+}
+.tools_ex {
+    float: left;
+    background: #2d2d39;
+    width: 100%;
+    padding: 1.2% 2%;
+    height: 13vh;
+    color: #fff;
+}
+.title_text_ex {
+    float: left;
+    background: #ededfd;
+    width: 100%;
+    padding: 1% 5%;
+    height: 10vh;
     color: #31495e;
 }
-aside h3 {
-    font-size: 40px;
-}
-aside ul {list-style: none}
-aside ul li{
-    color: #31495e;
-    display: block;
-    margin-top: 20px;
-    margin-left: 15px;
-    transition: transform .6s ease;
-}
-.tools_text{
-    font-size: 28px;
-    color: #31495e;
-}
-aside ul a{font-size: 28px;}
-aside ul li:hover, aside ul a:hover{
-        color: #fff;
-        text-decoration: none;
-        transform: scale(1.05);
-}
-.search{
-    color: white;
-    background-color: #31495e;
+.main_img_3 {
+    float: left;
+    background: #f8fafd;
+    width: 100%;
     text-align: center;
-    padding: 10px 90px;
+    padding: 1% 4%;
+    height: 62vh;
+    color: #31495e;
 }
-.find{
-    padding: 10px 22px;
+.main_img_3 img {width: 350px;}
+.main_text_ex {
+    float: left;
+    background: #f8fafd;
+    width: 100%;
+    padding: 2%;
+    height: 62vh;
+    color: #31495e;
 }
-.alert-warning{
-    width: 1200px;
-    text-align: left;
-}
+.main_text_ex img {width: 300px; float: right;}
+.main_text_ex button {background: #737373; color: #fff; font-size: 24px;padding: 12px 28px;  border-radius: 10px}
+
+.tools a {color: #fff; text-decoration: none;}
+.flore {width: 100%; height: 5vh; color: #5aa5b9;}
+.flore1 {float: left; background: #51546e; width: 80%; height: 5vh; padding: 0.5% 2%;}
+.flore2 {float: right; background: #51546e; width: 20%; height: 5vh; padding: 0.5% 2%;}
 

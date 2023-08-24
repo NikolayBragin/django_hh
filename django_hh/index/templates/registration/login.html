@@ -3,14 +3,26 @@
 {% block title %}Вход{% endblock %}
 
 {% block content %}
-    <h1>Вход</h1>
-    <hr>
-    <form method="POST">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <button>Войти</button>
-    </form>
+    <aside class="title_text">
+        <h1>ВХОД В ЛИЧНЫЙ КАБИНЕТ</h1>
+    </aside>
+    <aside class="main_text">
+        <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button>Войти</button>
+        </form>
+    </aside>
 {% endblock %}
-{% block tools %}{% endblock %}
-{% block search %}{% endblock %}
+
+{% block tools %}
+<aside class="tools_ex">
+    <h5>
+        Только зерегестрированные пользователи могут добавлять резюме в свою папку.<br>
+        <br>
+        Все данные строго конфиденциальны. Мы заботимся о вашей безопасности!
+    </h5>
+</aside>
+{% endblock %}
+
 

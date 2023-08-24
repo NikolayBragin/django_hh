@@ -21,10 +21,18 @@ def news_home(request):
     return render(request, 'news_home.html', context)
 
 def about(request):
-    return render(request, 'about.html')
+    search_bar = forms.SearchForm()
+    products = models.Product.objects.all()
+    categories = models.Category.objects.all()
+    context = {'form': search_bar, 'products': products, 'categories': categories}
+    return render(request, 'about.html', context)
 
 def contacts(request):
-    return render(request, 'contacts.html')
+    search_bar = forms.SearchForm()
+    products = models.Product.objects.all()
+    categories = models.Category.objects.all()
+    context = {'form': search_bar, 'products': products, 'categories': categories}
+    return render(request, 'contacts.html', context)
 
 def get_exact_category(request, pk):
     category = models.Category.objects.get(id=pk)
@@ -33,6 +41,7 @@ def get_exact_category(request, pk):
     return render(request, 'exact_category.html', context)
 
 def get_exact_product(request, pk):
+    search_bar = forms.SearchForm()
     product = models.Product.objects.get(id=pk)
     city = product.product_city
     API_TOKEN = '7d58c54b3c0c66b13dcff13b9c5134e7'
@@ -44,7 +53,7 @@ def get_exact_product(request, pk):
     else:
         p ='облачно'
     y = [city, p, x['main']['temp'], x['main']['pressure'], x['main']['humidity'], x['wind']['speed']]
-    context = {'product': product, 'Температура': y}
+    context = {'product': product, 'Температура': y, 'form': search_bar}
     return render(request, 'exact_product.html', context)
 
 def search_product(request):
@@ -61,7 +70,7 @@ def add_to_cart(request, pk):
         checker = models.Product.objects.get(id=pk)
         product_amount_one = 1
         models.Cart.objects.create(user_id=request.user.id, user_product=checker, user_product_count=product_amount_one).save()
-        return redirect('/')
+        return redirect('/news_home')
 
 def user_cart(request):
     cart = models.Cart.objects.filter(user_id=request.user.id)

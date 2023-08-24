@@ -3,21 +3,33 @@
 {% block title %}Контакты{% endblock %}
 
 {% block content %}
-    <h1>Контакты</h1>
-    <hr>
-<h5>
-    <p>Ташкент, Мирзо-Улугбекский район, улица Сайрам, дом 2, квартира 84</p>
-    <p>тел: +998-90-038-39-11, эл.адрес: anhksnick@gmail.com </p></h5>
+    <aside class="title_text">
+        <h1>КОНТАКТЫ</h1>
+    </aside>
+    <aside class="main_text">
+        <h5>Ташкент, Мирзо-Улугбекский район, улица Сайрам, дом 2, квартира 84</h5><br>
+        <h5>тел: +998-90-038-39-11, эл.адрес: anhksnick@gmail.com </h5><br>
+    </aside>
 {% endblock %}
 
 {% block search %}
-        <hr>
-        <h5>Ввести имя работника</h5>
-        <form action="search" method="POST">
-            {% csrf_token %}
-            <input class="find" type="text" name="search_product"><br>
-            <br>
-            <button class="search"><i class="fa-solid fa-magnifying-glass"></i> Поиск</button>
-        </form>
-        <hr>
+    <form action="search" method="POST">
+        {% csrf_token %}
+        <input class="find" type="text" placeholder="Поиск по имени" name="search_product">
+    </form>
+{% endblock %}
+
+{% block tools %}
+<aside class="tools">
+    <h5>
+        ПРОФЕССИИ:
+        {% for category in categories %}
+            <a href="category/{{ category.id }}">{{ category.category_name }}</a>
+        {% endfor %}<br>
+        <br>СОТРУДНИКИ:
+        {% for product in products %}
+            <a href="product/{{ product.id }}">{{ product.product_name }}</a>
+        {% endfor %}
+    </h5>
+</aside>
 {% endblock %}

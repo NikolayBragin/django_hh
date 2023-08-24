@@ -4,33 +4,34 @@
 {% block title %}Работник{% endblock %}
 
 {% block content %}
-    <h1>{{ product.product_name }}<img src="/{{ product.product_photo }}" alt="{{ product.product_name }}" /></h1>
-    <hr>
-    <h4>Профессия: {{ product.product_category }}</h4><br>
-    <h4>Город: {{ product.product_city }}</h4><br>
-    <h4>Резюме: {{ product.product_des }}</h4><br>
-    <h4>Начальная зарплата: {{ product.product_price }} сум</h4>
-    {% if user.is_authenticated %}
-        <form action="/add-to-cart/{{ product.id }}" method="POST">
+    <aside class="title_text_ex">
+        <h1>{{ product.product_name }}</h1>
+    </aside>
+    <aside class="main_text_ex">
+        <h4>Профессия: {{ product.product_category }}</h4><img src="/{{ product.product_photo }}" alt="{{ product.product_name }}"/><br>
+        <h4>Город: {{ product.product_city }}</h4><br>
+        <h4>Резюме: {{ product.product_des }}</h4><br>
+        <h4>Начальная зарплата: {{ product.product_price }} сум</h4><br>
+        {% if user.is_authenticated %}
+            <form action="/add-to-cart/{{ product.id }}" method="POST">
             {% csrf_token %}
-            <button class="search"><i class="fa-solid fa-circle-plus"></i> Добавить</button>
+            <button class="search"><i class="fa-solid fa-circle-plus"></i> Добавить резюме</button>
+            </form>
+        {% else %}
+            <h5>*Войдите в свой аккаунт, если хотите добавить данное резюме</h5>
+        {% endif %}
 
-        </form>
-    {% else %}
-        <h5>*Войдите в свой аккаунт, если хотите добавить данное резюме</h5>
-
-    {% endif %}
-
-
+    </aside>
 {% endblock %}
+
 {% block tools %}
-    <h1>Внезапный прогноз погоды</h1>
-    <hr>
-    <h4>
-        Сегодня в городе {{ Температура.0 }} {{ Температура.1 }}. Температура: {{ Температура.2 }} градусов Цельсия. Атмосферное давление: {{ Температура.3 }}мм. рт. ст.
-        <br>
+<aside class="tools_ex">
+    <h5>
+        Внезапный прогноз погоды: <br>
+        <br>Сегодня в городе {{ Температура.0 }} {{ Температура.1 }}. Температура: {{ Температура.2 }} градусов Цельсия. Атмосферное давление: {{ Температура.3 }} мм. рт. ст.
         Влажность: {{ Температура.4 }} %. Скорость ветра: {{ Температура.5 }} м/сек
-    </h4>
+    </h5>
+</aside>
 {% endblock %}
-{% block search %}{% endblock %}
+
 

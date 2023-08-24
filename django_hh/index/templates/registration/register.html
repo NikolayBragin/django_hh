@@ -3,13 +3,25 @@
 {% block title %}Регистрация{% endblock %}
 
 {% block content %}
-    <h1>Регистрация</h1>
-    <hr>
-     <form method="POST">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <button type="submit">Регистрация</button>
-    </form>
+    <aside class="title_text">
+        <h1>РЕГИСТРАЦИЯ НОВОГО ПОЛЬЗОВАТЕЛЯ</h1>
+    </aside>
+    <aside class="main_text">
+        <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Регистрация</button>
+        </form>
+    </aside>
 {% endblock %}
-{% block tools %}{% endblock %}
-{% block search %}{% endblock %}
+
+{% block tools %}
+<aside class="tools_ex">
+    <h5>
+        Только зерегестрированные пользователи могут добавлять резюме в свою папку.<br>
+        <br>
+        Все данные строго конфиденциальны. Мы заботимся о вашей безопасности!
+    </h5>
+</aside>
+{% endblock %}
+

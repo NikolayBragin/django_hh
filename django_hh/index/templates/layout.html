@@ -10,34 +10,28 @@
 </head>
 <body>
     <aside class="bar">
-        <ul>
-            <h3><i class="fa-solid fa-magnifying-glass"></i> HeadHunter</h3>
-            <hr>
-            <a href="/"><li><i class="fa-solid fa-house"></i> Главная</li></a>
-            <a href="/news_home"><li><i class="fa-solid fa-magnifying-glass"></i> Персонал</li></a>
-            <a href="/about"><li><i class="fa-solid fa-address-card"></i> Обо мне</li></a>
-            <a href="/contacts"><li><i class="fa-solid fa-paperclip"></i> Контакты</li></a>
-            <hr>
-            {% if user.is_authenticated %}
-                <a href="accounts/logout/"><li><i class="fa-solid fa-right-from-bracket"></i> Выйти</li></a>
-                <a href="/cart"><li><i class="fa-regular fa-handshake"></i> Кандидаты</li></a>
-            {% else %}
-                <a href="/accounts/login/"><li><i class="fa-solid fa-right-to-bracket"></i> Войти</li></a>
-                <a href="/register"><li><i class="fa-solid fa-clipboard"></i> Регистрация</li></a>
-            {% endif %}
-
-            {% block search %}{% endblock %}
-        </ul>
+        <aside class="bar1"><i class="fa-solid fa-magnifying-glass"></i> HeadHunter</aside>
+        <aside class="bar2"></aside>
+        <aside class="bar3"><a href="/"><i class="fa-solid fa-house"></i> Главная</a></aside>
+        <aside class="bar4"><a href="/news_home" ><i class="fa-solid fa-magnifying-glass"></i> Персонал</a></aside>
+        <aside class="bar5"><a href="/about"><i class="fa-solid fa-address-card"></i> Обо мне</a></aside>
+        <aside class="bar6"><a href="/contacts"><i class="fa-solid fa-paperclip"></i> Контакты</a></aside>
+        <aside class="bar7">{% block search %}{% endblock %}</aside>
+        {% if user.is_authenticated %}
+            <aside class="bar8"><a href="/cart"><i class="fa-regular fa-handshake"></i> Кандидаты</a></aside>
+            <aside class="bar9"><a href="accounts/logout/"><i class="fa-solid fa-right-from-bracket"></i> Выйти</a></aside>
+        {% else %}
+            <aside class="bar8"><a href="/register"><i class="fa-solid fa-clipboard"></i> Регистрация</a></aside>
+            <aside class="bar9"><a href="/accounts/login/"><i class="fa-solid fa-right-to-bracket"></i> Войти</a></aside>
+        {% endif %}
     </aside>
-    <aside class="main">
-        {% block content %}
 
-        {% endblock %}
+    {% block content %}{% endblock %}
+    {% block tools %}{% endblock %}
+    <aside class="flore">
+        <aside class="flore1">Все права принадлежат Брагину Николаю Андреевичу</aside>
+        <aside class="flore2">Особая благодарность Tehnikum school</aside>
     </aside>
-    <aside class="tools">
-        {% block tools %}
 
-        {% endblock %}
-    </aside>
 </body>
 </html>
